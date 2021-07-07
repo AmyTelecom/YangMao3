@@ -33,7 +33,7 @@ async function all() {
     //nodejs运行
     if ($.isNode()) {
 
-        let sqxsck = require('./sqxsck1.json');
+        let sqxsck = require('./sqxsck2.json');
         let CountNumber = sqxsck.settings[1].val;
         $.log(`============ 共 ${CountNumber} 个${jobname}账号=============`);
 
