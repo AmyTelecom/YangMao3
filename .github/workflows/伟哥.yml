@@ -4,7 +4,7 @@ on:
   watch:
     types: started
   schedule:
-    - cron: '1 2-23 * * *'
+    - cron: '1 */2 * * *'
 jobs:
   build:
     runs-on: macos-latest       
@@ -32,5 +32,6 @@ jobs:
           cd ~/YangMao3/YangMao
           node 伟哥.js    
         env:
-          ENCRYPT_KEY: ${{ secrets.ENCRYPT_KEY }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
 
