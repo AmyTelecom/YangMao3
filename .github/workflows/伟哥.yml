@@ -1,0 +1,36 @@
+name: 测试
+on:
+  workflow_dispatch:
+  watch:
+    types: started
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  build:
+    runs-on: macos-latest       
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      
+      - name: Checkout
+        run: |
+          git clone https://github.com/AmyTelecom/YangMao3.git ~/YangMao3
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x          
+      - name: npm install
+        run: |
+          cd ~/YangMao3/YangMao      
+          npm install
+          npm install cron
+          npm install request
+          curl ipinfo.io/json
+          
+          
+      - name: '【书旗小说】'
+        run: |  
+          cd ~/YangMao3/YangMao
+          node 伟哥.js    
+        env:
+          ENCRYPT_KEY: ${{ secrets.ENCRYPT_KEY }}
+
