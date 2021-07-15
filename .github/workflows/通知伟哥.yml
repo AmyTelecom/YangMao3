@@ -33,7 +33,7 @@ jobs:
           node 伟哥.js    
       - name: '【通知伟哥】'
         run: |  
-          cd ~
+          cd ~/YangMao3
           node sendNotify.js    
         env:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
