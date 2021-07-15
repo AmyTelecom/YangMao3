@@ -1,4 +1,4 @@
-name: 伟哥
+name: 通知伟哥
 on:
   workflow_dispatch:
   watch:
@@ -27,13 +27,13 @@ jobs:
           curl ipinfo.io/json
           
           
-      - name: '【伟哥】'
+      - name: '【通知伟哥】'
         run: |  
           cd ~/YangMao3/YangMao
           node 伟哥.js    
-      - name: '【伟哥】'
+      - name: '【通知伟哥】'
         run: |  
-          cd ~/YangMao3/YangMao
+          cd ~
           node sendNotify.js    
         env:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
