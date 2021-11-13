@@ -1,0 +1,33 @@
+name: TT-1-1
+on:
+  workflow_dispatch:
+  watch:
+    types: started
+  schedule:
+    - cron: '1 */2 * * *'
+jobs:
+  build:
+    runs-on: macos-latest       
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      
+      - name: Checkout
+        run: |
+          git clone https://github.com/AmyTelecom/YangMao3.git ~/YangMao3
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x          
+      - name: npm install
+        run: |
+          cd ~/YangMao3/YangMao      
+          npm install
+          npm install cron
+          npm install request
+          curl ipinfo.io/json
+          
+          
+      - name: '【TT-1-1】'
+        run: |  
+          cd ~/YangMao3/YangMao
+          node TT-1-1.js    
